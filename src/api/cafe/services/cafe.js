@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * brand service
+ * cafe service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::brand.brand');
+module.exports = createCoreService('api::cafe.cafe');

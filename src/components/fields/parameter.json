@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_fields_parameters",
+  "info": {
+    "displayName": "Parameter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "oneChoice",
+        "multiselect"
+      ]
+    },
+    "fields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "fields.field"
+    }
+  }
+}

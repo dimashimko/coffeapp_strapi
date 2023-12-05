@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * brand router
+ * dish router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::brand.brand');
+module.exports = createCoreRouter('api::dish.dish');
