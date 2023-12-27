@@ -1,18 +1,33 @@
 let connectedUsers = [];
 
+//Example
+// [
+//   {
+//     userID: 1,
+//     socket: SocketOBJ(),
+//   },
+//   {
+//     ...
+//   }
+// ]
+
 module.exports = ({ env }) => ({
-	// ...
-	io: {
-		enabled: true,
-		config: {
+  "io": {
+    "enabled": true,
+    "config": {
+      "IOServerOptions" :{
+        "cors": { "origin": "http://localhost:1337", "methods": ["GET", "POST"] },
+      },
 			contentTypes: ['api::article.article'],
+//      "contentTypes": {
+//        "message": "*",
+//        "chat":["create"]
+//      },
       "events":[
         {
           "name": "connection",
           "handler": ({ strapi }, socket) => {
             strapi.log.info(`[io] new connection with id ${socket.id}`);
-            strapi.log.info(`*** connectedUsers length: ${connectedUsers.length}`);
-            strapi.log.info(`*** connectedUsers: ${connectedUsers}`);
 
             socket.on('chat:connect', async (data)  =>{
               let {userID} = data;
@@ -22,6 +37,9 @@ module.exports = ({ env }) => ({
                 'userID': userID,
                 'socket': socket,
               });
+
+            console.log(`connectedUsers length: ${connectedUsers.length}`);
+            console.log(`connectedUsers: ${connectedUsers}`);
 
              try {
               //Получаем список чатов к котороых есть наш пользователь с userID
@@ -88,6 +106,6 @@ module.exports = ({ env }) => ({
           },
         },
       ]
-		},
-	},
+    },
+  },
 });
