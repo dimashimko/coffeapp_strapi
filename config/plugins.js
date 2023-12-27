@@ -10,13 +10,19 @@ module.exports = ({ env }) => ({
                "handler": ({ strapi }, socket) => {
                  strapi.log.info(`[io] new connection with id ${socket.id}`);
 
-                 socket.on('message:sendPrivateMessage', (data) => {
-                     console.log(`onPrivateMessage to ${data.anotherSocketID}`);
+                socket.on('chat:connect', (data) =>{
+                  console. log('new connection to room ${data.roomID}');
 
-                     socket.to(data.anotherSocketID).emit(
-                       "chat:onNewPrivateMessage",
-                       data.message,
-                     );
+                  socket. join(data. roomID);
+                });
+
+                socket.on('chat:sendPrivateMessage', (data) => {
+                  console. log('Private message from ${data.message. from} to room ${data.roomID}');
+
+                  socket.to(data.roomID).emit(
+                    "chat:onNewPrivateMessage",
+                    data. message,
+                    );
                 });
 
                  socket.on('disconnect', async (data) =>{
