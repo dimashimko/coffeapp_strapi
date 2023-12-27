@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userId": {
+      "type": "integer"
+    },
+    "cartId": {
+      "type": "integer"
+    },
+    "dateTime": {
+      "type": "datetime"
+    },
+    "deliveryType": {
+      "type": "enumeration",
+      "enum": [
+        "delivery",
+        "pickup"
+      ]
+    },
+    "paymentType": {
+      "type": "enumeration",
+      "enum": [
+        "cash",
+        "online",
+        "paid"
+      ]
+    },
+    "promo": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "float"
+    }
+  }
+}

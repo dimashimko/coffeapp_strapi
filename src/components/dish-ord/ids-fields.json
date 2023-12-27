@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dish_ord_ids_fields",
+  "info": {
+    "displayName": "IdsFields"
+  },
+  "options": {},
+  "attributes": {
+    "idField": {
+      "type": "integer"
+    }
+  }
+}

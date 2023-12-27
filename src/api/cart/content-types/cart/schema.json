@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carts",
+  "info": {
+    "singularName": "cart",
+    "pluralName": "carts",
+    "displayName": "Cart"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dishOrd": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dish-ord.dish-ord"
+    }
+  }
+}

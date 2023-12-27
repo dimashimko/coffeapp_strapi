@@ -46,6 +46,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::cafe.cafe"
+    },
+    "recommended": {
+      "type": "boolean"
     }
   }
 }

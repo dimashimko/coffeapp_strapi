@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_dish_ord_parameters",
+  "info": {
+    "displayName": "Parameters"
+  },
+  "options": {},
+  "attributes": {
+    "idParameter": {
+      "type": "integer"
+    },
+    "idsFields": {
+      "type": "string"
+    }
+  }
+}

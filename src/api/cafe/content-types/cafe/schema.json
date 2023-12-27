@@ -37,6 +37,9 @@
         "videos",
         "audios"
       ]
+    },
+    "pricePerKm": {
+      "type": "decimal"
     }
   }
 }

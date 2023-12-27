@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_dish_ord_dish_ords",
+  "info": {
+    "displayName": "DishOrd",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "dishId": {
+      "type": "integer"
+    },
+    "cafeId": {
+      "type": "integer"
+    },
+    "instruction": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "parameters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dish-ord.parameters"
+    }
+  }
+}

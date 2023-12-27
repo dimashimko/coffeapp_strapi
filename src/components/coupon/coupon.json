@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_coupon_coupons",
+  "info": {
+    "displayName": "Coupon"
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "string"
+    },
+    "sale": {
+      "type": "integer"
+    }
+  }
+}

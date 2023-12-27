@@ -95,6 +95,17 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::dish.dish"
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "coupons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::coupon.coupon"
     }
   }
 }
