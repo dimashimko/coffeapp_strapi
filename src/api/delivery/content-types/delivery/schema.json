@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deliveries",
+  "info": {
+    "singularName": "delivery",
+    "pluralName": "deliveries",
+    "displayName": "Delivery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userLatitude": {
+      "type": "float"
+    },
+    "userLongitude": {
+      "type": "float"
+    },
+    "cafeLatitude": {
+      "type": "float"
+    },
+    "cafeLongitude": {
+      "type": "float"
+    },
+    "userId": {
+      "type": "integer"
+    },
+    "orderId": {
+      "type": "integer"
+    },
+    "orderDeliveryStatus": {
+      "type": "enumeration",
+      "enum": [
+        "wait",
+        "onTheWay",
+        "delivered"
+      ]
+    },
+    "cafeId": {
+      "type": "integer"
+    }
+  }
+}

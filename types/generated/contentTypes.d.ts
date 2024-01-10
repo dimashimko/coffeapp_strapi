@@ -888,6 +888,78 @@ export interface ApiCouponCoupon extends Schema.CollectionType {
   };
 }
 
+export interface ApiCourierCourier extends Schema.CollectionType {
+  collectionName: 'couriers';
+  info: {
+    singularName: 'courier';
+    pluralName: 'couriers';
+    displayName: 'Courier';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    phone: Attribute.String;
+    photo: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::courier.courier',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::courier.courier',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDeliveryDelivery extends Schema.CollectionType {
+  collectionName: 'deliveries';
+  info: {
+    singularName: 'delivery';
+    pluralName: 'deliveries';
+    displayName: 'Delivery';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    userLatitude: Attribute.Float;
+    userLongitude: Attribute.Float;
+    cafeLatitude: Attribute.Float;
+    cafeLongitude: Attribute.Float;
+    userId: Attribute.Integer;
+    orderId: Attribute.Integer;
+    orderDeliveryStatus: Attribute.Enumeration<
+      ['wait', 'onTheWay', 'delivered']
+    >;
+    cafeId: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::delivery.delivery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::delivery.delivery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDishDish extends Schema.CollectionType {
   collectionName: 'dishes';
   info: {
@@ -1020,6 +1092,8 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::chat.chat': ApiChatChat;
       'api::coupon.coupon': ApiCouponCoupon;
+      'api::courier.courier': ApiCourierCourier;
+      'api::delivery.delivery': ApiDeliveryDelivery;
       'api::dish.dish': ApiDishDish;
       'api::message.message': ApiMessageMessage;
       'api::order.order': ApiOrderOrder;
