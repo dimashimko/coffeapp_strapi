@@ -823,39 +823,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
-export interface ApiChatChat extends Schema.CollectionType {
-  collectionName: 'chats';
-  info: {
-    singularName: 'chat';
-    pluralName: 'chats';
-    displayName: 'Chat';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    chat_id: Attribute.UID;
-    messages: Attribute.Relation<
-      'api::chat.chat',
-      'oneToMany',
-      'api::message.message'
-    >;
-    chat_users: Attribute.Relation<
-      'api::chat.chat',
-      'oneToMany',
-      'plugin::users-permissions.user'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::chat.chat', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::chat.chat', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCouponCoupon extends Schema.CollectionType {
   collectionName: 'coupons';
   info: {
@@ -994,45 +961,6 @@ export interface ApiDishDish extends Schema.CollectionType {
   };
 }
 
-export interface ApiMessageMessage extends Schema.CollectionType {
-  collectionName: 'messages';
-  info: {
-    singularName: 'message';
-    pluralName: 'messages';
-    displayName: 'Message';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    message_text: Attribute.String;
-    message_media: Attribute.Media;
-    message_type: Attribute.Enumeration<['default', 'service']>;
-    chat_id: Attribute.UID;
-    creation_date: Attribute.DateTime;
-    chat: Attribute.Relation<
-      'api::message.message',
-      'oneToOne',
-      'api::chat.chat'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::message.message',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::message.message',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiOrderOrder extends Schema.CollectionType {
   collectionName: 'orders';
   info: {
@@ -1090,12 +1018,10 @@ declare module '@strapi/types' {
       'api::cafe.cafe': ApiCafeCafe;
       'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
-      'api::chat.chat': ApiChatChat;
       'api::coupon.coupon': ApiCouponCoupon;
       'api::courier.courier': ApiCourierCourier;
       'api::delivery.delivery': ApiDeliveryDelivery;
       'api::dish.dish': ApiDishDish;
-      'api::message.message': ApiMessageMessage;
       'api::order.order': ApiOrderOrder;
     }
   }

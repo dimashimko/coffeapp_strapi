@@ -34,11 +34,6 @@ module.exports = ({ env }) => ({
             socket.on('changeStatus', async (data) => {
               console.log(`ChangeStatus ${data['deliveryModelID']}, ${data['orderStatus']}`);
 
-              
-              // socket.to(data.roomID).emit(
-              //   "onLocationData",
-              //   data,
-              // );
 
                try {
                 let deliverys = await strapi.db.query("api::delivery.delivery").findMany();
